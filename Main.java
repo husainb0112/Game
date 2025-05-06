@@ -1,20 +1,41 @@
 public class Main {
     public static void main(String[] args) {
-        Level l1 = new Level(true, 10);
-        Level l2 = new Level(true, 20);
-        Level l3 = new Level(true, 30);
-        Game game1 = new Game(l1, l2, l3, true);
-        game1.play();
-        System.out.println("Score (should be 180): " + game1.getScore());
+        Game one = new Game(); 
+        one.getLevel(1).reachGoal(); 
+        one.getLevel(1).setPoints(200);
+        one.getLevel(2).reachGoal();
+        one.getLevel(2).setPoints(100);
+        one.getLevel(3).reachGoal();
+        one.getLevel(3).setPoints(500); 
+        one.makeBonus();
+        System.out.println(one.getScore());
 
-        Level l4 = new Level(true, 10);
-        Level l5 = new Level(false, 20);
-        Level l6 = new Level(true, 30);
-        Game game2 = new Game(l4, l5, l6, false);
-        game2.play();
-        System.out.println("Score (should be 10): " + game2.getScore());
+        Game two = new Game();
+        two.getLevel(1).reachGoal(); 
+        two.getLevel(1).setPoints(200);
+        two.getLevel(2).reachGoal();
+        two.getLevel(2).setPoints(100);
+        two.getLevel(3).setPoints(500); 
+        System.out.println(two.getScore());
 
-        Game game3 = new Game(new Level(true, 10), new Level(true, 20), new Level(true, 30), false);
-        System.out.println("Max score in 3 plays: " + game3.playManyTimes(3));
+        Game three = new Game();
+        three.getLevel(1).reachGoal(); 
+        three.getLevel(1).setPoints(200);
+        three.getLevel(2).setPoints(100);
+        three.getLevel(3).reachGoal();
+        three.getLevel(3).setPoints(500); 
+        three.makeBonus();
+        System.out.println(three.getScore());
+
+        Game four = new Game();
+        four.getLevel(1).setPoints(200);
+        four.getLevel(2).setPoints(100);
+        four.getLevel(3).reachGoal();
+        four.getLevel(3).setPoints(500); 
+        System.out.println(four.getScore());
+
+        Game five = new Game();
+        System.out.println(five.playManyTimes(4)); 
     }
+
 }
